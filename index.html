@@ -112,7 +112,7 @@
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Unlimited Upload DB</li>
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Support via WhatsApp</li>
                     </ul>
-                    <a href="#daftar" onclick="selectPackage('1 Bulan - Rp 40.000')" class="block text-center w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50 transition">Pilih Paket</a>
+                    <a href="#daftar" onclick="selectPackage('1 Bulan - Rp 40.000')" class="block text-center w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50 transition cursor-pointer">Pilih Paket</a>
                 </div>
                 <!-- Paket 3 Bulan (Recommended) -->
                 <div class="p-8 rounded-2xl border-2 border-blue-600 bg-blue-50/50 relative transform md:-translate-y-4 shadow-xl">
@@ -124,7 +124,7 @@
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Hemat Rp 15.000</li>
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Prioritas Support</li>
                     </ul>
-                    <a href="#daftar" onclick="selectPackage('3 Bulan - Rp 105.000')" class="block text-center w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Pilih Paket</a>
+                    <a href="#daftar" onclick="selectPackage('3 Bulan - Rp 105.000')" class="block text-center w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30 cursor-pointer">Pilih Paket</a>
                 </div>
                 <!-- Paket 6 Bulan -->
                 <div class="p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition bg-white">
@@ -135,7 +135,7 @@
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Hemat Rp 60.000</li>
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Free Konsultasi Setup</li>
                     </ul>
-                    <a href="#daftar" onclick="selectPackage('6 Bulan - Rp 180.000')" class="block text-center w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50 transition">Pilih Paket</a>
+                    <a href="#daftar" onclick="selectPackage('6 Bulan - Rp 180.000')" class="block text-center w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50 transition cursor-pointer">Pilih Paket</a>
                 </div>
             </div>
         </div>
@@ -160,12 +160,12 @@
                             <div>
                                 <label class="block text-sm font-semibold mb-2 text-slate-700">Kode Toko <span class="text-red-500">*</span></label>
                                 <input type="text" id="kodeToko" placeholder="Contoh: TOKO01" required maxlength="20" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 outline-none uppercase">
-                                <p class="text-xs text-slate-500 mt-1">Huruf besar, max 4 karakter</p>
+                                <p class="text-xs text-slate-500 mt-1">Huruf besar, max 20 karakter</p>
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold mb-2 text-slate-700">PIN <span class="text-red-500">*</span></label>
                                 <input type="text" id="pin" placeholder="Contoh: 123456" required maxlength="10" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 outline-none">
-                                <p class="text-xs text-slate-500 mt-1">Angka saja, max 6 digit</p>
+                                <p class="text-xs text-slate-500 mt-1">Angka saja, max 10 digit</p>
                             </div>
                         </div>
                     </div>
@@ -198,7 +198,7 @@
                         </div>
                     </div>
 
-                    <!-- QRIS Section (Muncul setelah pilih paket) -->
+                    <!-- QRIS Section -->
                     <div id="qrisSection" class="hidden mb-6">
                         <div class="bg-gradient-to-br from-blue-50 to-purple-50 border-2 border-blue-300 rounded-xl p-6 text-center">
                             <div class="flex items-center justify-center gap-2 mb-3">
@@ -207,7 +207,8 @@
                             </div>
                             
                             <div class="bg-white rounded-xl p-4 inline-block mb-4 qris-glow">
-                                <img src="QRIS.jpeg" alt="QRIS.jpeg" class="max-w-[280px] w-full mx-auto">
+                                <!-- Pastikan nama file di GitHub adalah QRIS.jpeg -->
+                                <img src="QRIS.jpeg" alt="QRIS" class="max-w-[280px] w-full mx-auto">
                             </div>
                             
                             <div class="bg-white border-2 border-blue-500 rounded-xl p-4 mb-3">
@@ -258,7 +259,10 @@
                         <div><span class="text-xs text-slate-500 font-semibold">PIN:</span><br><span id="resPin" class="text-xl font-bold text-slate-900 font-mono"></span></div>
                     </div>
 
-                    <a id="waLink" href="#" target="_blank" class="inline-block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition">
+                    <!-- CONTAINER LINK DRIVE (AKAN DIISI OLEH JAVASCRIPT) -->
+                    <div id="linkDriveContainer"></div>
+
+                    <a id="waLink" href="#" target="_blank" class="inline-block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition mt-4">
                         <i class="bi bi-whatsapp"></i> Konfirmasi ke Admin via WhatsApp
                     </a>
                 </div>
@@ -278,20 +282,17 @@
         let fileBase64 = null;
         let fileName = null;
 
-        // Mapping nominal per paket
         const PAKET_NOMINAL = {
             '1 Bulan - Rp 40.000': 40000,
             '3 Bulan - Rp 105.000': 105000,
             '6 Bulan - Rp 180.000': 180000
         };
 
-        // Fungsi untuk select paket dari tombol pricing
         function selectPackage(paketValue) {
             document.getElementById('paket').value = paketValue;
             showQRIS(paketValue);
         }
 
-        // Fungsi untuk tampilkan QRIS sesuai paket
         function showQRIS(paket) {
             const qrisSection = document.getElementById('qrisSection');
             const uploadSection = document.getElementById('uploadSection');
@@ -302,7 +303,6 @@
                 qrisSection.classList.remove('hidden');
                 uploadSection.classList.remove('hidden');
                 
-                // Scroll ke QRIS
                 setTimeout(() => {
                     qrisSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 300);
@@ -365,8 +365,33 @@
                     document.getElementById('resKode').textContent = result.kode_toko;
                     document.getElementById('resPin').textContent = result.pin;
 
-                    const waText = `Halo Admin Klerek Dashboard, saya *${data.nama}* dari toko *${data.nama_toko}* ingin berlangganan paket *${data.paket}*.\n\nKode Toko: *${result.kode_toko}*\nPIN: *${result.pin}*\n\n*Saya sudah scan QRIS dan upload bukti transfer.* Mohon diproses!`;
+                    // 1. TAMPILKAN LINK DI HALAMAN WEB (PASTI MUNCUL)
+                    const linkBukti = result.link_bukti || "Link tidak tersedia (Cek Sheet)";
+                    
+                    document.getElementById('linkDriveContainer').innerHTML = `
+                        <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl text-left">
+                            <p class="text-sm text-blue-800 font-bold mb-2"><i class="bi bi-link-45deg"></i> LINK BUKTI TRANSFER ANDA:</p>
+                            <a href="${linkBukti}" target="_blank" class="text-sm text-blue-600 hover:underline break-all font-mono bg-white p-2 rounded border border-blue-100 block">
+                                ${linkBukti}
+                            </a>
+                            <p class="text-xs text-slate-500 mt-2">*Simpan link ini untuk referensi Anda.*</p>
+                        </div>
+                    `;
+
+                    // 2. BUAT PESAN WHATSAPP (LINK PASTI MASUK SINI)
+                    const waText = `Halo Admin Klerek Dashboard,\n\n` +
+                                   `Saya *${data.nama}* dari toko *${data.nama_toko}*.\n` +
+                                   `Ingin berlangganan paket: *${data.paket}*\n\n` +
+                                   `--------------------------------\n` +
+                                   `KODE TOKO: *${result.kode_toko}*\n` +
+                                   `PIN: *${result.pin}*\n` +
+                                   `--------------------------------\n\n` +
+                                   `📎 *LINK BUKTI TRANSFER:*\n${linkBukti}\n\n` +
+                                   `Mohon segera diproses ya Admin! Terima kasih.`;
+
+                    // 3. MASUKKAN KE TOMBOL WA
                     document.getElementById('waLink').href = `https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(waText)}`;
+                    
                 } else {
                     alert('Gagal: ' + result.message);
                     btn.disabled = false;
