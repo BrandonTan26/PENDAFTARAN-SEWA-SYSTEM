@@ -100,7 +100,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition bg-white">
                     <h3 class="font-bold text-xl mb-2">1 Bulan</h3>
-                    <div class="text-4xl font-extrabold mb-6">Rp 40K</div>
+                    <div class="text-4xl font-extrabold mb-6">Rp 350K</div>
                     <ul class="space-y-3 mb-8 text-slate-600 text-sm">
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Akses Dashboard Penuh</li>
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Unlimited Upload DB</li>
@@ -111,20 +111,20 @@
                 <div class="p-8 rounded-2xl border-2 border-blue-600 bg-blue-50/50 relative transform md:-translate-y-4 shadow-xl">
                     <span class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">POPULAR</span>
                     <h3 class="font-bold text-xl mb-2">3 Bulan</h3>
-                    <div class="text-4xl font-extrabold mb-6">Rp 105K</div>
+                    <div class="text-4xl font-extrabold mb-6">Rp 950K</div>
                     <ul class="space-y-3 mb-8 text-slate-600 text-sm">
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Semua Fitur 1 Bulan</li>
-                        <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Hemat Rp 15.000</li>
+                        <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Hemat Rp 100.000</li>
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Prioritas Support</li>
                     </ul>
                     <a href="#daftar" class="block text-center w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">Pilih Paket</a>
                 </div>
                 <div class="p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition bg-white">
                     <h3 class="font-bold text-xl mb-2">6 Bulan</h3>
-                    <div class="text-4xl font-extrabold mb-6">Rp 180K</div>
+                    <div class="text-4xl font-extrabold mb-6">Rp 1.750K</div>
                     <ul class="space-y-3 mb-8 text-slate-600 text-sm">
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Semua Fitur 3 Bulan</li>
-                        <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Hemat Rp 60.000</li>
+                        <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Hemat Rp 350.000</li>
                         <li class="flex items-center gap-2"><i class="bi bi-check-circle-fill text-green-500"></i> Free Konsultasi Setup</li>
                     </ul>
                     <a href="#daftar" class="block text-center w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-50 transition">Pilih Paket</a>
@@ -162,9 +162,9 @@
                         <div>
                             <label class="block text-sm font-semibold mb-2">Pilih Paket</label>
                             <select id="paket" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition bg-white">
-                                <option value="1 Bulan - Rp 40.000">1 Bulan (Rp 40.000)</option>
-                                <option value="3 Bulan - Rp 105.000">3 Bulan (Rp 105.000)</option>
-                                <option value="6 Bulan - Rp 180.000">6 Bulan (Rp 180.000)</option>
+                                <option value="1 Bulan - Rp 350.000">1 Bulan (Rp 350.000)</option>
+                                <option value="3 Bulan - Rp 950.000">3 Bulan (Rp 950.000)</option>
+                                <option value="6 Bulan - Rp 1.750.000">6 Bulan (Rp 1.750.000)</option>
                             </select>
                         </div>
                     </div>
@@ -211,7 +211,8 @@
     </footer>
 
     <script>
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb-7Qup4EV72-Xyy_fYrdKfeUy1Ifog7gwlo6InsW054p__jU_e3NLDmqGY1Fh2xdygg/exec';
+        // ⚠️ GANTI DENGAN URL APPS SCRIPT LO
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzH6HBs-WFHTjm7bpyJ7lI4TTB9hdS2yzSIMrfkn1r-NSOhINPWI6tn8TSg_95UWTtlRg/exec';
         const ADMIN_WA = '6285774122710';
 
         let fileBase64 = null;
@@ -222,10 +223,6 @@
                 const file = input.files[0];
                 fileName = file.name;
                 document.getElementById('fileLabel').innerHTML = `<i class="bi bi-file-earmark-check-fill text-3xl text-green-500 mb-2"></i><p class="text-sm text-slate-700 font-semibold">${file.name}</p>`;
-                
-                const reader = new FileReader();
-                reader.onload = function(e) { fileBase64 = e.target.result; };
-                reader.readAsDataURL(file);
             }
         }
 
@@ -235,8 +232,13 @@
             const btnText = document.getElementById('btnText');
             const spinner = document.getElementById('btnSpinner');
             
+            if (!fileName) {
+                alert('Silakan upload bukti transfer terlebih dahulu!');
+                return;
+            }
+
             btn.disabled = true;
-            btnText.textContent = 'Mengirim data...';
+            btnText.textContent = 'Memproses data...';
             spinner.classList.remove('hidden');
 
             const data = {
@@ -245,8 +247,7 @@
                 nama_toko: document.getElementById('namaToko').value,
                 no_wa: document.getElementById('noWa').value,
                 paket: document.getElementById('paket').value,
-                fileData: fileBase64,
-                fileName: fileName
+                fileName: fileName 
             };
 
             try {
@@ -263,15 +264,19 @@
                     document.getElementById('resKode').textContent = result.kode_toko;
                     document.getElementById('resPin').textContent = result.pin;
 
-                    const waText = `Halo Admin Klerek Dashboard, saya *${data.nama}* dari toko *${data.nama_toko}* ingin berlangganan paket *${data.paket}*. Saya sudah upload bukti transfer. Kode Toko saya: *${result.kode_toko}*. Mohon diproses ya!`;
+                    const waText = `Halo Admin Klerek Dashboard, saya *${data.nama}* dari toko *${data.nama_toko}* ingin berlangganan paket *${data.paket}*. \n\nKode Toko saya: *${result.kode_toko}*\nPIN: *${result.pin}*\n\n*Saya lampirkan bukti transfer pada chat ini ya.* Mohon diproses!`;
                     document.getElementById('waLink').href = `https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(waText)}`;
                 } else {
                     alert('Gagal: ' + result.message);
-                    btn.disabled = false; btnText.textContent = 'Kirim & Konfirmasi ke WhatsApp'; spinner.classList.add('hidden');
+                    btn.disabled = false; 
+                    btnText.textContent = 'Kirim & Konfirmasi ke WhatsApp'; 
+                    spinner.classList.add('hidden');
                 }
             } catch (err) {
                 alert('Error koneksi: ' + err.message);
-                btn.disabled = false; btnText.textContent = 'Kirim & Konfirmasi ke WhatsApp'; spinner.classList.add('hidden');
+                btn.disabled = false; 
+                btnText.textContent = 'Kirim & Konfirmasi ke WhatsApp'; 
+                spinner.classList.add('hidden');
             }
         }
     </script>
